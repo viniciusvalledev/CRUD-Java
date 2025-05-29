@@ -8,7 +8,7 @@ import model.Fornecedor;
 public class FornecedorDAO {
     private final String url = "jdbc:postgresql://localhost:5432/CRUD_java";
     private final String user = "postgres";
-    private final String password = "288464";
+    private final String password = "...";
 
     public Connection conectar() throws SQLException {
         return DriverManager.getConnection(url, user, password);

@@ -7,59 +7,59 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
 </p>
 
-> Sistema robusto desenvolvido em Java puro utilizando o padrão DAO (Data Access Object) para gerenciar operações completas de CRUD (Create, Read, Update, Delete) integradas com banco de dados relacional PostgreSQL.
+> Robust system developed in pure Java using the DAO (Data Access Object) pattern to manage complete CRUD (Create, Read, Update, Delete) operations integrated with a PostgreSQL relational database.
 
 ---
 
-## Sumário
+## Table of Contents
 
-* [Sobre o Projeto](#sobre-o-projeto)
-* [Arquitetura e Tecnologias](#arquitetura-e-tecnologias)
-* [Estrutura de Pastas](#estrutura-de-pastas)
-* [Pré-requisitos](#pré-requisitos)
-* [Como Executar o Projeto](#como-executar-o-projeto)
-* [Funcionalidades](#funcionalidades)
-* [Autor](#autor)
-
----
-
-## Sobre o Projeto
-
-Este projeto tem como objetivo principal demonstrar boas práticas de desenvolvimento backend utilizando **Java Standard Edition** e persistência de dados com **JDBC nativo**. Ele gerencia entidades do tipo **Fornecedor**, permitindo o fluxo completo de manipulação de dados de forma segura, modular e orientada a objetos.
+* [About the Project](#about-the-project)
+* [Architecture & Technologies](#architecture--technologies)
+* [Folder Structure](#folder-structure)
+* [Prerequisites](#prerequisites)
+* [How to Run the Project](#how-to-run-the-project)
+* [Features](#features)
+* [Author](#author)
 
 ---
 
-## Arquitetura e Tecnologias
+## About the Project
 
-O projeto adota uma arquitetura em camadas para garantir a separação de responsabilidades:
+This project aims to demonstrate best backend development practices using **Java Standard Edition** and data persistence with **native JDBC**. It manages **Supplier** entities, enabling a complete flow of data manipulation in a secure, modular, and object-oriented way.
 
-| Camada / Componente | Descrição |
+---
+
+## Architecture & Technologies
+
+The project adopts a layered architecture to ensure separation of concerns:
+
+| Layer / Component | Description |
 | :--- | :--- |
-| **Model** (`model/`) | Contém as classes de entidade (POJOs) que representam os dados da aplicação. |
-| **DAO** (`dao/`) | Responsável pela persistência e comunicação direta com o banco de dados via SQL. |
-| **Connection** (`crud/`) | Fábrica de conexões centralizada para gerenciar a sessão com o SGBD. |
-| **Main** (`crud/`) | Ponto de entrada da aplicação para testes em console. |
+| **Model** (`model/`) | Contains the entity classes (POJOs) representing the application data. |
+| **DAO** (`dao/`) | Responsible for data persistence and direct communication with the database via SQL. |
+| **Connection** (`crud/`) | Centralized connection factory to manage sessions with the DBMS. |
+| **Main** (`crud/`) | Application entry point for console tests. |
 
-* **Linguagem:** Java (JDK 8+)
-* **Banco de Dados:** PostgreSQL
+* **Language:** Java (JDK 8+)
+* **Database:** PostgreSQL
 * **Driver:** PostgreSQL JDBC Driver (`42.7.5`)
 
 ---
 
-## Estrutura de Pastas
+## Folder Structure
 
 ```text
 CRUD-Java/
 ├── lib/
-│   └── postgresql-42.7.5.jar  # Driver de conexão JDBC
+│   └── postgresql-42.7.5.jar  # JDBC connection driver
 ├── src/
 │   ├── crud/
-│   │   ├── ConnectionFactory.java # Gerenciador de conexão com o banco
-│   │   └── Main.java              # Executável principal
+│   │   ├── ConnectionFactory.java # Database connection manager
+│   │   └── Main.java              # Main executable
 │   ├── dao/
-│   │   └── FornecedorDAO.java     # Regras de banco (SQL Queries)
+│   │   └── FornecedorDAO.java     # Database queries and persistence logic
 │   └── model/
-│       └── Fornecedor.java        # Entidade de domínio
+│       └── Fornecedor.java        # Domain entity
 ├── .gitignore
 ├── .classpath
 └── .project

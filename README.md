@@ -1,49 +1,65 @@
-# CRUD-Java
+<h1 align="center">CRUD Java PostgreSQL</h1>
 
-A Java application demonstrating basic CRUD operations (Create, Read, Update, Delete).
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/JDBC-API-blue?style=for-the-badge" alt="JDBC">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
 
-If you want to learn more about Java development, please visit the official documentation: [https://docs.oracle.com/en/java/](https://docs.oracle.com/en/java/).
+> Sistema robusto desenvolvido em Java puro utilizando o padrão DAO (Data Access Object) para gerenciar operações completas de CRUD (Create, Read, Update, Delete) integradas com banco de dados relacional PostgreSQL.
 
-## Running the application in dev mode
+---
 
-You can run your application in development mode using Maven:
+## Sumário
 
-```bash
-./mvnw clean spring-boot:run
-NOTE: If you don't use the wrapper, you can execute mvn spring-boot:run.
+* [Sobre o Projeto](#sobre-o-projeto)
+* [Arquitetura e Tecnologias](#arquitetura-e-tecnologias)
+* [Estrutura de Pastas](#estrutura-de-pastas)
+* [Pré-requisitos](#pré-requisitos)
+* [Como Executar o Projeto](#como-executar-o-projeto)
+* [Funcionalidades](#funcionalidades)
+* [Autor](#autor)
 
-Packaging and running the application
-The application can be packaged using:
+---
 
-./mvnw package
-java -jar target/crud-java-0.0.1-SNAPSHOT.jar
+## Sobre o Projeto
 
-Prerequisites and Setup
-Make sure you have Java JDK installed and your database properly configured in src/main/resources/application.properties before running the build or dev mode.
+Este projeto tem como objetivo principal demonstrar boas práticas de desenvolvimento backend utilizando **Java Standard Edition** e persistência de dados com **JDBC nativo**. Ele gerencia entidades do tipo **Fornecedor**, permitindo o fluxo completo de manipulação de dados de forma segura, modular e orientada a objetos.
 
-Example database configuration:
+---
 
-spring.datasource.url=jdbc:mysql://localhost:3306/crud_db
-spring.datasource.username=root
-spring.datasource.password=yourpassword
-spring.jpa.hibernate.ddl-auto=update
+## Arquitetura e Tecnologias
 
-Related Guides
-Spring Data JPA: Persist data in SQL stores with Java Persistence API using Spring Data Repositories.
+O projeto adota uma arquitetura em camadas para garantir a separação de responsabilidades:
 
-Spring Web: Build RESTful applications using Spring MVC.
+| Camada / Componente | Descrição |
+| :--- | :--- |
+| **Model** (`model/`) | Contém as classes de entidade (POJOs) que representam os dados da aplicação. |
+| **DAO** (`dao/`) | Responsável pela persistência e comunicação direta com o banco de dados via SQL. |
+| **Connection** (`crud/`) | Fábrica de conexões centralizada para gerenciar a sessão com o SGBD. |
+| **Main** (`crud/`) | Ponto de entrada da aplicação para testes em console. |
 
-MySQL Driver: Connect to the MySQL database via JDBC.
+* **Linguagem:** Java (JDK 8+)
+* **Banco de Dados:** PostgreSQL
+* **Driver:** PostgreSQL JDBC Driver (`42.7.5`)
 
-API Endpoints
-The application exposes RESTful endpoints for managing resources:
+---
 
-POST /api/resources - Create a new entry
+## Estrutura de Pastas
 
-GET /api/resources - Get all entries
-
-GET /api/resources/{id} - Get entry by ID
-
-PUT /api/resources/{id} - Update entry by ID
-
-DELETE /api/resources/{id} - Delete entry by ID
+```text
+CRUD-Java/
+├── lib/
+│   └── postgresql-42.7.5.jar  # Driver de conexão JDBC
+├── src/
+│   ├── crud/
+│   │   ├── ConnectionFactory.java # Gerenciador de conexão com o banco
+│   │   └── Main.java              # Executável principal
+│   ├── dao/
+│   │   └── FornecedorDAO.java     # Regras de banco (SQL Queries)
+│   └── model/
+│       └── Fornecedor.java        # Entidade de domínio
+├── .gitignore
+├── .classpath
+└── .project
